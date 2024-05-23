@@ -1,0 +1,46 @@
+.seccion {
+    margin-top: calc($separacion / 2);
+    margin-bottom: calc($separacion / 2);
+}
+.contenido-centrado {
+    max-width: 80rem;
+}
+.alinear-derecha {
+    display: flex;
+    justify-content: flex-end;
+}
+.w-100 {
+    width: 100%;
+}
+
+.ir-arriba-btn {
+    display: none; /* Oculto inicialmente */
+    position: fixed; /* Posición fija en la ventana */
+    z-index: 99; /* Asegura que esté sobre otros elementos */
+    border: none;
+    border-radius: 1rem;
+    background-color: $negro;
+    color: $blanco;
+    font-size: 2rem;
+    bottom: 5rem;
+    right: 2rem;
+    padding: 1rem;
+    
+    &:hover {
+        cursor: pointer;
+        background-color: $blanco;
+        color: $negro;
+    }
+}
+
+@keyframes rebote {
+    0%, 20%, 50%, 80%, 100% {
+      transform: translateY(0);
+    }
+    40% {
+      transform: translateY(-4rem);
+    }
+    60% {
+      transform: translateY(-2rem);
+    }
+}

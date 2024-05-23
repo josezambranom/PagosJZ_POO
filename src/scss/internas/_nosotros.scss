@@ -1,0 +1,46 @@
+.nosotros {
+    &__contenido {
+        text-align: justify;
+    }
+    &__imagen {
+        border: solid .3rem $negro;
+        border-radius: 2rem;
+    }
+}
+
+@include tablet {
+    .nosotros {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        column-gap: 5rem;
+    }
+}
+
+@include desktop {
+    .nosotros__contenido {
+        width: 50rem;
+    }
+    .nosotros__imagen {
+        width: 25rem;
+    }
+}
+
+.bloque {
+    text-align: justify;
+    &__titulo {
+        margin: 0;
+    }
+    &__imagen {
+        display: block;
+        width: auto;
+        margin: 0 auto;
+        filter: brightness(0%);
+    }
+}
+
+@include tablet {
+    .bloques {
+        @include grid(2, 10rem);
+    }  
+}

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es" data-location="QUEVEDO">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Jose Zambrano">
+    <meta name="description" content="Tienda de Servicios de Entretenimiento">
+    <title>Punto de Pagos JZ</title>
+    <link rel="icon" type="img/logo-principal" href="build/img/logo-principal.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Krub:wght@400;600&family=Staatliches&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="build/css/app.min.css">
+</head>
+
+<body>
+    <header class="header">
+        <a class="logo" href="index.html">
+            <picture>
+                <source srcset="build/img/logo-principal.webp" type="image/webp">
+                <source srcset="build/img/logo-principal.png" type="image/png">
+                <img class="logo__img" loading="lazy" src="build/img/logo-principal.png" alt=logo-principal">
+            </picture>
+        </a>
+        <nav class="navegacion">
+            <a class="navegacion__enlace" href="index.html">Tienda</a>
+            <a class="navegacion__enlace navegacion__enlace--activo" href="promociones.html">Promociones</a>
+            <a class="navegacion__enlace" href="nosotros.html">Nosotros</a>
+        </nav>
+    </header>
+
+    <main class="contenedor">
+        <h1>Nuestras Promociones</h1>
+        <p><span class="negrita">Atención:</span> Para continuar con el proceso de compra debe dar clic en la plataforma o servicio de su elección.</p>
+        <div class="grid">
+
+            <div class="producto">
+                <a href="comprapromo.html">
+                    <picture>
+                        <source srcset="build/img/streaming/office.webp" type="image/webp">
+                        <source srcset="build/img/streaming/office.jpg" type="image/jpeg">
+                        <img class="producto__imagen" loading="lazy" src="build/img/streaming/office.jpg" alt="office">
+                    </picture>
+                    <div class="producto__informacion">
+                        <p class="producto__nombre">Microsoft Office 365 1 Año</p>
+                        <p class="producto__precio">$ 20</p>
+                    </div>
+                </a>
+            </div><!-- .producto -->
+
+            <div class="producto">
+                <a href="comprapromo.html">
+                    <picture>
+                        <source srcset="build/img/streaming/spotify.webp" type="image/webp">
+                        <source srcset="build/img/streaming/spotify.jpg" type="image/jpeg">
+                        <img class="producto__imagen" loading="lazy" src="build/img/streaming/spotify.jpg" alt=spotify">
+                    </picture>
+                    <div class="producto__informacion">
+                        <p class="producto__nombre">Spotify 3 Meses</p>
+                        <p class="producto__precio">$ 10</p>
+                    </div>
+                </a>
+            </div><!-- .producto -->
+
+            <div class="producto">
+                <a href="comprapromo.html">
+                    <picture>
+                        <source srcset="build/img/streaming/youtube.webp" type="image/webp">
+                        <source srcset="build/img/streaming/youtube.jpg" type="image/jpeg">
+                        <img class="producto__imagen" loading="lazy" src="build/img/streaming/youtube.jpg" alt=youtube">
+                    </picture>
+                    <div class="producto__informacion">
+                        <p class="producto__nombre">Youtube Premium 3 Meses</p>
+                        <p class="producto__precio">$ 8</p>
+                    </div>
+                </a>
+            </div><!-- .producto -->
+
+        </div><!-- .grid -->
+    </main>
+
+    <footer class="footer">
+        <div class="footer__social">
+            <p class="footer__texto">Síguenos en Nuestras Redes Sociales</p>
+            
+            <a href="https://www.facebook.com/internet.jztv/" target="_blank">
+                <i class="fab fa-facebook"></i>
+            </a>
+
+            <a href="https://www.instagram.com/puntodepagos_jz/" target="_blank">
+                <i class="fab fa-instagram"></i>
+            </a>
+
+            <a href="https://wa.me/593963177642/" target="_blank"">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+
+            <a href="https://t.me/puntodepagosjz/" target="_blank">
+                <i class="fab fa-telegram"></i>
+            </a>
+        </div><!-- .footer__social -->
+
+        <p class="footer__texto">Copyright &copy; 2024 Punto de Pagos JZ - Todos los derechos reservados.</p>
+
+    </footer>
+
+    <!-- Botón para subir -->
+    <button class="ir-arriba-btn">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+</body>
+
+<script src="build/js/bundle.min.js"></script>
+
+</html>

@@ -1,0 +1,28 @@
+
+.navegacion__enlace {
+    display: block;
+    text-align: center;
+    color: $negro;
+    font-size: 3rem;
+    font-family: $fuente_principal;
+
+    &--activo, &:hover {
+        color: $blanco;
+    }
+}
+
+@include tablet {
+    .header {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .navegacion {
+        display: flex;
+        column-gap: 2rem;
+    }
+
+    .navegacion__enlace {
+        font-size: 3.5rem;
+    }
+}

@@ -1,0 +1,61 @@
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+    /*1rem = 10px*/
+}
+
+*,*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+body {
+    background-color: $blanco;
+    font-size: 1.6rem;
+    line-height: 1.5;
+}
+
+p {
+    font-size: 2rem;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: $negro;
+    text-align: justify;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    width: 100%;
+}
+
+.contenedor {
+    max-width: 120rem;
+    margin: 0 1.5rem;
+}
+
+
+@include desktop {
+    .contenedor {
+        margin: 0 auto;
+    }
+}
+
+h1, h2, h3{
+    text-align: center;
+    color: $negro;
+    font-family: $fuente_principal;
+}
+
+h1 {
+    font-size: 4rem;
+}
+
+h2 {
+    font-size: 3.2rem;
+}
+
+h3 {
+    font-size: 2.4rem;
+}

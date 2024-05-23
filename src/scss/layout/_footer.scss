@@ -1,0 +1,26 @@
+.footer {
+    background-color: $primarioOscuro;
+    padding: .5rem 0;
+    margin-top: 2rem;
+
+    &__texto {
+        color: $negro;
+        font-size: 2rem;
+        font-family: $fuente_principal;
+        text-align: center;
+        margin: auto;
+    }
+
+    &__social {
+        text-align: center;
+
+        a {
+            color: $negro;
+            font-size: 4rem;
+
+            &:hover {
+                color: $blanco;
+            }
+        }
+    }
+}
