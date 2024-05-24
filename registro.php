@@ -8,9 +8,16 @@
     $persona = new Persona();
     $usuario = new Usuario();
 
-     // Arreglo con mensajes de errores
-     $errores = Persona::getErrores();
-     $errores = Usuario::getErrores();
+    // Arreglo con mensajes de errores
+    $errores = Persona::getErrores();
+    $errores = Usuario::getErrores();
+
+    $registro = Persona::all();
+    foreach ($registro as $r){
+        $id = $r->id+1;
+    }
+
+    $resultado = $_GET['result'] ?? null;
 
      // Ejecutar el código después de que el usuario envía el form
      if($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -19,6 +26,19 @@
 
         $errores = $persona->validar();
         $errores = $usuario->validar();
+
+        $usuario->tipousuario = '0';
+        $usuario->personaid = $id;
+        $usuario->clave = hashPassword($usuario->clave);
+
+        if(empty($errores)) {
+            if($persona->guardar()) {
+                if($usuario->guardar()) {
+                    header('Location: /registro.php?result=1');
+                }
+            }
+        }
+        
      }
 ?>
 
@@ -30,6 +50,12 @@
                 <?php echo $error; ?>
             </div>
         <?php endforeach; ?>
+
+        <?php
+            $mensaje = mostrarMensaje(intval($resultado));
+            if($mensaje) { ?>
+                <p class="alerta exito"><?php echo s($mensaje); ?></p>
+        <?php } ?>
 
         <form class="formulario" method="POST">
             <?php include 'includes/templates/formulario_registro.php'; ?>

@@ -4,20 +4,20 @@ namespace App;
 
 class Plataforma extends ActiveRecord {
     protected static $tabla = "plataforma";
-    protected static $columnasDB = ["id", "plataforma", "precio", "estado", "cuentaid"];
+    protected static $columnasDB = ["id", "plataforma", "precio", "estado", "usuarioid"];
 
     public $id;
     public $plataforma;
     public $precio;
     public $estado;
-    public $cuentaid;
+    public $usuarioid;
 
     public function __construct($args = []) {
         $this->id = $args['id'] ?? null;
         $this->plataforma = $args['plataforma'] ?? '';
         $this->precio = $args['precio'] ?? '';
         $this->estado = $args['estado'] ?? '';
-        $this->cuentaid = $args['cuentaid'] ?? '';
+        $this->usuarioid = $args['usuarioid'] ?? '';
     }
 
     public function validar() {

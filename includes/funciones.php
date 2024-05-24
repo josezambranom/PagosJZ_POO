@@ -34,10 +34,10 @@ function mostrarMensaje($codigo) {
     $mensaje = "";
     switch($codigo) {
         case 1:
-            $mensaje = 'Creado Correctamente';
+            $mensaje = 'Registrado con éxito';
         break;
         case 2:
-            $mensaje = 'Actualizado Correctamente';
+            $mensaje = 'Actualizado con éxito';
         break;
         case 3:
             $mensaje = 'Eliminado Correctamente';
@@ -48,4 +48,24 @@ function mostrarMensaje($codigo) {
     }
 
     return $mensaje;
+}
+
+// Hashear clave
+function hashPassword($password) {
+    $passwordHashed = password_hash($password, PASSWORD_BCRYPT);
+    return $passwordHashed;
+}
+
+function tipoUsuario($user) {
+    switch ($user) {
+        case '0': 
+            return 'user/index.php?id='; 
+        break; 
+        case '1': 
+            return 'admin/index.php?id='; 
+        break; 
+        default:
+            return '';
+        break;
+    }
 }

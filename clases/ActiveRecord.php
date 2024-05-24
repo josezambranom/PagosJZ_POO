@@ -16,6 +16,18 @@ class ActiveRecord {
         self::$db = $database;
     }
 
+    public function guardar() {
+        $respuesta = false;
+        if (!is_null($this->id)) {
+            // Actualizando un registro
+            $respuesta = $this->actualizar();
+        } else {
+            // Creando un registro
+            $respuesta = $this->crear();
+        }
+        return $respuesta;
+    }
+
     public function crear() {
         // Sanitizar datos
         $atributos = $this->sanitizarDatos();
@@ -23,7 +35,7 @@ class ActiveRecord {
         // Insertar en DB
         $query = " INSERT INTO " . static::$tabla . " ( ";
         $query .= join(', ', array_keys($atributos));
-        $query .= " ) VALUES (' ";  
+        $query .= " ) VALUES ('";  
         $query .= join("', '", array_values($atributos));
         $query .= " ') ";
 
@@ -31,6 +43,8 @@ class ActiveRecord {
 
         if($result) {
             return true;
+        } else {
+            return false;
         }
     }
 
@@ -52,6 +66,8 @@ class ActiveRecord {
         
         if($result) {
             return true;
+        } else {
+            return false;
         }
     }
 

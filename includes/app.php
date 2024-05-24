@@ -10,3 +10,4 @@ $db = conectarDB();
 use App\ActiveRecord;
 
 ActiveRecord::setDB($db);
+?>

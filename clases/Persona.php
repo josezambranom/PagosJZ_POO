@@ -6,13 +6,13 @@ class Persona extends ActiveRecord {
     protected static $tabla = "persona";
     protected static $columnasDB = ["id", "nombre", "apellido", "genero"];
 
-    public $idpersona;
+    public $id;
     public $nombre;
     public $apellido;
     public $genero;
 
     public function __construct($args = []) {
-        $this->idpersona = $args["id"] ?? null;
+        $this->id = $args["id"] ?? null;
         $this->nombre = $args["nombre"] ?? "";
         $this->apellido = $args["apellido"] ?? "";
         $this->genero = $args["genero"] ?? "";
