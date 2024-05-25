@@ -4,13 +4,15 @@ namespace App;
 
 class Cuenta extends ActiveRecord {
     protected static $tabla = "cuenta";
-    protected static $columnasDB = ["id", "usuario", "clave", "pin", "perfil", "usuarioid", "plataformaid"];
+    protected static $columnasDB = ["id", "usuario", "clave", "pin", "perfil", "fecha", "vigencia", "usuarioid", "plataformaid"];
 
     public $id;
     public $usuario;
     public $clave;
     public $pin;
     public $perfil;
+    public $fecha;
+    public $vigencia;
     public $usuarioid;
     public $plataformaid;
     
@@ -18,8 +20,10 @@ class Cuenta extends ActiveRecord {
         $this->id = $args['id'] ?? null;
         $this->usuario = $args['usuario'] ?? '';
         $this->clave = $args['clave'] ?? '';
-        $this->pin = $args['pin'] ?? '';
+        $this->pin = $args['pin'] ?? null;
         $this->perfil = $args['perfil'] ?? '';
+        $this->fecha = date('Y/m/d');
+        $this->vigencia = $args['vigencia'] ?? '';
         $this->usuarioid = $args['usuarioid'] ?? '';
         $this->plataformaid = $args['plataformaid'] ?? '';
     }
@@ -30,6 +34,15 @@ class Cuenta extends ActiveRecord {
         }
         if(!$this->clave){
             self::$errores[] = "La clave es obligatoria";
+        }
+        if(!$this->usuarioid){
+            self::$errores[] = "Debes seleccionar un usuario";
+        }
+        if(!$this->plataformaid){
+            self::$errores[] = "Debes seleccionar una plataforma";
+        }
+        if(!$this->vigencia){
+            self::$errores[] = "Debes seleccionar el tiempo de duración de la cuenta";
         }
         return self::$errores;
     }

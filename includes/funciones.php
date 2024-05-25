@@ -9,12 +9,18 @@ function incluirTemplate(string $nombre, bool $inicio = false) {
 }
 
 function estaAutenticado() {
-    session_start();
+    // Verifica si la sesión no está ya iniciada
+    if (session_status() === PHP_SESSION_NONE) {
+        session_start();
+    }
 
-    if(!$_SESSION['login']){
+    // Verifica si el usuario no está autenticado
+    if (!$_SESSION['login']) {
         header('Location: /');
+        exit; // Es una buena práctica llamar a exit() después de header() para detener la ejecución del script
     }
 }
+
 
 function debugear($variable) {
     echo "<pre>";
@@ -29,6 +35,12 @@ function s($html):string {
     return $s;
 }
 
+// Validar tipo de contenido
+function validarTipoContenido($tipo) {
+    $tipos = ['plataforma', 'cuenta'];
+    return in_array($tipo, $tipos); // Permite buscar un string/valor dentro de un arreglo
+}
+
 // Mostrar Mensajes
 function mostrarMensaje($codigo) {
     $mensaje = "";
@@ -41,6 +53,9 @@ function mostrarMensaje($codigo) {
         break;
         case 3:
             $mensaje = 'Eliminado Correctamente';
+        break;
+        case 4:
+            $mensaje = 'No es posible ejecutar la operación, verifique restricciones';
         break;
         default:
             $mensaje = false;
@@ -59,13 +74,35 @@ function hashPassword($password) {
 function tipoUsuario($user) {
     switch ($user) {
         case '0': 
-            return 'user/index.php?id='; 
+            return 'user/'; 
         break; 
         case '1': 
-            return 'admin/index.php?id='; 
+            return 'admin/'; 
         break; 
         default:
             return '';
         break;
     }
+}
+
+function idTipoUsuario($user) {
+    switch ($user) {
+        case '0': 
+            return 'Cliente'; 
+        break; 
+        case '1': 
+            return 'Administrador'; 
+        break; 
+        default:
+            return '';
+        break;
+    }
+}
+
+function calcularDiasRestantes($fecha_inicial, $dias_restantes) {
+    $fechaInicial = new DateTime($fecha_inicial);
+    $fechaActual = new DateTime();
+    $diferencia = $fechaInicial->diff($fechaActual)->days;
+    $diasRestantes = max(0, $dias_restantes - $diferencia);
+    return $diasRestantes;
 }

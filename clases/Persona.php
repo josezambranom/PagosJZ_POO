@@ -25,7 +25,7 @@ class Persona extends ActiveRecord {
         if(!$this->apellido) {
             self::$errores[] = "El apellido es obligatorio"; 
         }
-        if(!$this->genero) {
+        if($this->genero === '') {
             self::$errores[] = "El género es obligatorio"; 
         }
         return self::$errores;

@@ -42,11 +42,11 @@
     @include grid(2,2rem);
 
     @include tablet {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(4, 1fr);
     }
     
     @include desktop {
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(5, 1fr);
     }
 }
 

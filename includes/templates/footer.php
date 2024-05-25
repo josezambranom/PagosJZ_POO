@@ -19,7 +19,7 @@
             </a>
         </div><!-- .footer__social -->
 
-        <p class="footer__texto">Copyright &copy; <?php echo date('Y')?> Punto de Pagos JZ - Todos los derechos reservados.</p>
+        <p class="footer__texto">&copy; <?php echo date('Y')?> Punto de Pagos JZ - Todos los derechos reservados</p>
 
     </footer>    
     

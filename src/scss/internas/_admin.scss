@@ -1,30 +1,12 @@
-.alerta {
-
-    padding: .5rem;
-    text-align: center;
-    color: $blanco;
-    font-weight: $bold;
-    text-transform: uppercase;
-    margin: 1rem 0;
-
-    &.error {
-        background-color: $rojo;
-    }
-
-    &.exito {
-        background-color: $verde;
-    }
-}
-
-table.propiedades {
-    margin: 4rem auto auto auto;
+table.tabla {
+    margin: 2rem auto auto auto;
     width: auto;
     border-spacing: 0;
     text-align: center;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
 
     thead {
-        background-color: $verde;
+        background-color: $primarioOscuro;
 
         th {
             color: $blanco;
@@ -41,8 +23,8 @@ table.propiedades {
 }
 
 @include tablet {
-    table.propiedades {
-        width: 100%;
+    table.tabla {
+        width: 80%;
         font-size: inherit;
         thead th {
             padding: 2rem;
@@ -58,12 +40,4 @@ table.propiedades {
 
 .imagen-smoll {
     width: 20rem;
-}
-
-.dark-mode {
-    table.propiedades {
-        tbody {
-            color: $blanco;
-        }
-    }
 }

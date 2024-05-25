@@ -9,6 +9,9 @@
 }
 
 @include tablet {
+    .nosotros__imagen {
+        width: 25rem;
+    }
     .nosotros {
         display: flex;
         align-items: center;
@@ -20,9 +23,6 @@
 @include desktop {
     .nosotros__contenido {
         width: 50rem;
-    }
-    .nosotros__imagen {
-        width: 25rem;
     }
 }
 

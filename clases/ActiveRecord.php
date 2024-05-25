@@ -8,6 +8,8 @@ class ActiveRecord {
     protected static $columnasDB = [];
     protected static $tabla = "";
 
+    protected static $columna = "";
+
     // Errores
     protected static $errores = [];
 
@@ -80,6 +82,8 @@ class ActiveRecord {
             // Elminar archivo
             $this->eliminarImagen();
             return true;
+        } else {
+            return false;
         }
 
     }
@@ -143,6 +147,12 @@ class ActiveRecord {
         return $result;
     }
 
+    public static function allorder() {
+        $query = "SELECT * FROM " . static::$tabla . " ORDER BY " . static::$columna . ' ASC'; // static se usa para hacer referencia a una clase heredada
+        $result = self::consultarSQL($query);
+        return $result;
+    }
+
     // Obtiene un determinado numero de registros
     public static function get($cantidad) {
         $query = "SELECT * FROM " . static::$tabla . " LIMIT " . $cantidad; // static se usa para hacer referencia a una clase heredada
@@ -186,11 +196,12 @@ class ActiveRecord {
     // Sincronizar el objeto en memoria con los cambios realizados por el usuario
     public function sincronizar($args = []) {
         foreach ($args as $key => $value) {
-            if (property_exists($this, $key) && !is_null($args)) {
+            if (property_exists($this, $key)) {
                 $this->$key = $value;
             }
         }
     }
+    
 }
 
 ?>

@@ -11,11 +11,12 @@
 
     <label for="genero">Género</label>
     <select name="persona[genero]" id="genero">
-        <option <?php echo ($persona->genero === '5') ? 'selected' : ''; ?> value="5">-- Seleccione una opción --</option>
-        <option <?php echo ($persona->genero === '1') ? 'selected' : ''; ?> value="<?php echo s($persona->genero = '1')?>">Hombre</option>
-        <option <?php echo ($persona->genero === '0') ? 'selected' : ''; ?> value="<?php echo s($persona->genero = '0')?>">Mujer</option>
-        <option <?php echo ($persona->genero === '2') ? 'selected' : ''; ?> value="<?php echo s($persona->genero = '2')?>">Otro</option>
+        <option selected value="">-- Seleccione una opción --</option>
+        <option <?php echo ($persona->genero === '1') ? 'selected' : ''; ?> value="1">Hombre</option>
+        <option <?php echo ($persona->genero === '0') ? 'selected' : ''; ?> value="0">Mujer</option>
+        <option <?php echo ($persona->genero === '2') ? 'selected' : ''; ?> value="2">Otro</option>
     </select>
+
 
 </fieldset>
 

@@ -4,7 +4,7 @@
         session_start();
     }
 
-    $auth = $_SESSION['login'] ?? false;
+    $tipoid = $_SESSION['tipoid'] ?? false;
 
 ?>
 
@@ -17,7 +17,7 @@
     <meta name="author" content="José Zambrano">
     <meta name="description" content="Tienda de Servicios de Entretenimiento">
     <title>Punto de Pagos JZ</title>
-    <link rel="icon" type="img/logo-principal" href="build/img/logo-principal.png">
+    <link rel="icon" type="img/logo-principal" href="build/img/logo-principal.webp">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Krub:wght@400;600&family=Staatliches&display=swap"
@@ -30,19 +30,21 @@
 
 <body>
     <header class="header">
-        <a class="logo" href="index.php">
-            <img class="logo__img" src="/build/img/logo-principal.png" alt=logo-principal">
+        <a class="logo" href="/">
+            <img class="logo__img" src="/build/img/logo-principal.webp" alt=logo-principal">
         </a>
         <nav class="navegacion">
-            <a class="navegacion__enlace <?php echo ($_SERVER['SCRIPT_NAME'] === '/index.php') ? 'navegacion__enlace--activo' : ''; ?>" href="/index.php">Inicio</a>
-            <a class="navegacion__enlace <?php echo ($_SERVER['SCRIPT_NAME'] === '/tienda.php') ? 'navegacion__enlace--activo' : ''; ?>" href="/tienda.php">Tienda</a>
-            
-            <?php if($auth) { ?>
-                <a class="navegacion__enlace <?php echo ($_SERVER['SCRIPT_NAME'] === '/user/panel.php') ? 'navegacion__enlace--activo' : ''; ?>" href="/user/panel.php">Mis Cuentas</a>
+        <a class="navegacion__enlace <?php echo ($_SERVER['SCRIPT_NAME'] === '/index.php') ? 'navegacion__enlace--activo' : ''; ?>" href="/">Inicio</a>
+                <a class="navegacion__enlace <?php echo ($_SERVER['SCRIPT_NAME'] === '/tienda.php') ? 'navegacion__enlace--activo' : ''; ?>" href="/tienda.php">Tienda</a>            
+            <?php if($tipoid === '0') {?>
+                <a class="navegacion__enlace <?php echo ($_SERVER['SCRIPT_NAME'] === '/user/index.php') ? 'navegacion__enlace--activo' : ''; ?>" href="/user">Mis Cuentas</a>
                 <a class="navegacion__enlace" href="/logout.php">Salir</a>
-            <?php } else { ?>
+            <?php } elseif ($tipoid == '1') { ?>
+                <a class="navegacion__enlace <?php echo ($_SERVER['SCRIPT_NAME'] === '/admin/index.php') ? 'navegacion__enlace--activo' : ''; ?>" href="/admin">Panel</a>
+                <a class="navegacion__enlace" href="/logout.php">Salir</a>
+            <?php } else { ?> 
                 <a class="navegacion__enlace <?php echo ($_SERVER['SCRIPT_NAME'] === '/registro.php') ? 'navegacion__enlace--activo' : ''; ?>" href="/registro.php">Registro</a>
-                <a class="navegacion__enlace <?php echo ($_SERVER['SCRIPT_NAME'] === '/login.php') ? 'navegacion__enlace--activo' : ''; ?>" href="/login.php" href="login.php">Acceso</a>
+                <a class="navegacion__enlace <?php echo ($_SERVER['SCRIPT_NAME'] === '/login.php') ? 'navegacion__enlace--activo' : ''; ?>" href="/login.php">Acceso</a>
             <?php } ?>
         </nav>
     </header>

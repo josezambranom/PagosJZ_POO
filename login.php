@@ -25,9 +25,11 @@
                         if($url !== '') {
                             session_start();
                             // Llenar el arreglo de la sesión
+                            $_SESSION['id'] = $user->id;
                             $_SESSION['usuario'] = $user->email;
                             $_SESSION['login'] = true;
-                            header('Location: /' . $url . $user->id);
+                            $_SESSION['tipoid'] = $user->tipousuario;
+                            header('Location: /' . $url);
                         } else {
                             $alert = 'No es posible inciar sesión';
                         }                        
