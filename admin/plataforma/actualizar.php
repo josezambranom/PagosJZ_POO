@@ -19,7 +19,7 @@ use Intervention\Image\ImageManager;
     $plataforma = Plataforma::find($id);
     $usuarios = Usuario::all();
     $personas = Persona::all();
-
+    
     $errores = Plataforma::getErrores();
 
     if($_SERVER['REQUEST_METHOD'] === 'POST') {  

@@ -19,7 +19,7 @@ class Plataforma extends ActiveRecord {
         $this->imagen = $args['imagen'] ?? '';
         $this->plataforma = $args['plataforma'] ?? '';
         $this->precio = $args['precio'] ?? '';
-        $this->estado = $args['estado'] ?? '1';
+        $this->estado = $args['estado'] ?? '';
         $this->usuarioid = $args['usuarioid'] ?? '';
     }
 
@@ -33,8 +33,8 @@ class Plataforma extends ActiveRecord {
         if(!$this->imagen){
             self::$errores[] = "La imagen de la plataforma es obligatoria";
         }
-        if(!$this->usuarioid){
-            self::$errores[] = "Debes seleccionar un usuario";
+        if(!$this->estado){
+            self::$errores[] = "Debes seleccionar un estado";
         }
         return self::$errores;
     }

@@ -116,5 +116,4 @@ function enviarMensaje($plataforma, $cantidad, $precio) {
 
     // Redireccionar a la página de venta
     header("Location: " . $urlVenta);
-    exit; // Asegura que el script se detenga después de la redirección
 }

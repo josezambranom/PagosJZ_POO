@@ -23,26 +23,4 @@
         <img src="/imagenes/<?php echo $plataforma->imagen; ?>" class="imagen-smoll">
     <?php endif;?>
 
-
-</fieldset>
-
-<fieldset>
-    <legend>Información Usuario</legend>
-    
-    <label for="usuarioid">Usuario</label>
-    <select name="plataforma[usuarioid]" id="usuarioid">
-        <option selected value="">-- Seleccione una opción --</option>
-        <?php foreach ($usuarios as $usuario): ?>
-            <option <?php echo ($usuario->id === $plataforma->usuarioid) ? 'selected' : ''; ?>
-                value="<?php echo s($usuario->id)?>">
-                <?php 
-                    foreach ($personas as $persona) {
-                        echo ($usuario->personaid === $persona->id) ? $persona->nombre 
-                        . " " . $persona->apellido . " - " . idTipoUsuario($usuario->tipousuario) : '';
-                    }
-                ?>
-            </option>
-        <?php endforeach; ?>
-    </select>
-    
 </fieldset>

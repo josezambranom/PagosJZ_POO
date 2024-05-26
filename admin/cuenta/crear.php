@@ -5,9 +5,13 @@
     estaAutenticado();
 
     use App\Cuenta;
+    use App\Persona;
     use App\Plataforma;
+    use App\Usuario;
 
     $plataformas = Plataforma::allorder();
+    $personas = Persona::all();
+    $usuarios = Usuario::all();
     $cuenta = new Cuenta();
     $errores = Cuenta::getErrores();
 
@@ -16,9 +20,8 @@
     if($_SERVER['REQUEST_METHOD'] === 'POST') {
         
         $cuenta = new Cuenta($_POST['cuenta']);
-
-        $errores = $cuenta->validar();
         $cuenta->usuarioid = $id;
+        $errores = $cuenta->validar();
         
         if($cuenta->perfil != 5) {
             $pin = rand(0000, 9999);

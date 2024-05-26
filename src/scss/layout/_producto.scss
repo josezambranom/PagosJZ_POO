@@ -31,10 +31,8 @@
     &__imagen {
         display: block;
         margin: 0 auto;
+        border: 0.3rem solid $blanco;
         border-radius: 20rem;
-        border-style: solid;
-        border-width: 0.1;
-        border-color: $negro;
     }
 }
 
@@ -57,64 +55,33 @@
     grid-column: 1 / 3;
 }
 
-.camisa__contenido {
-    text-align: justify;
-}
-
-@include tablet {
-    .camisa {
-        @include grid (2, 2rem)
-    }
-}
-
-.formulario {
-    p {
-        font-size: 2rem;
-    }
-}
-
-.formulario__campo {
-    display: block;
-    margin: 0 auto;
-    width: 30rem;
-    border: 1rem solid $primarioOscuro;
-    background-color: $primario;
-    color: $negro;
-    font-size: 2rem;
-    font-family: Arial, Helvetica, sans-serif;
-    margin-bottom: 2rem;
-    padding: 1rem;
-    appearance: none;
-}
-.formulario__submit {
-    display: block;
-    margin: 0 auto;
-    background-color: $primarioOscuro;
-    border: none;
-    font-size: 2rem;
-    font-family: $fuente_principal;
-    padding: 2rem;
-    transition: background-color .3s ease;
-}
-@include tablet{
-    .formulario {
-        @include grid (2, 2rem);
-        font-size: 3rem;
-    }
-
-    .formulario__submit{
-        display: grid;
-        margin: 0;
-        grid-column: 1 / 3;
-
-        &:hover {
-            cursor: pointer;
-            color: $blanco;
-            background-color: $negro;
+.producto {
+    &_form {
+        p {
+            text-align: left;
+            margin: 1rem 0;
         }
     }
-    .formulario__campo{
-        display: grid;
-        margin: 0;
+    &_plataforma {
+        font-family: $fuente_principal;
+        font-size: 2.5rem;
     }
+    &_precio {
+        font-size: 2rem;
+    }
+    &_cantidad {
+        width: 20rem;
+        margin-right: 5rem;
+        border: .2rem solid $gris;
+        padding: .8rem;
+    }
+    @include telefonomax {
+        .producto_form {
+            margin: 0 auto;
+        }
+    }
+}
+.nota {
+    font-size: 1.5rem;
+    margin-top: 3rem;
 }

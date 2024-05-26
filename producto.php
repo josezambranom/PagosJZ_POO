@@ -24,16 +24,16 @@
         </div>
     <?php } ?>
 
-    <div class="camisa">
+    <div class="nosotros">
         <img class="imagen-smoll" src="/imagenes/<?php echo $plataforma->imagen ?>" alt=carrito">
-        <div class="camisa__contenido">
-        <form class="formulario" method="POST">
-            <p><?php echo $plataforma->plataforma ?></p>
-            <p><?php echo $plataforma->precio ?></p>
-            <input name="cantidad" class="formulario__campo" type="number" placeholder="Cantidad" min="1" require>
-            <input class="formulario__submit" type="submit" value="Comprar" >
-        </form>
-        <p>Nota: Al dar clic en COMPRAR serás redireccionado a WhatsApp, para continuar con el proceso.</p>
+        <div class="nosotros__contenido">
+            <form class="producto_form" method="POST">
+                <p class="producto_plataforma"><?php echo $plataforma->plataforma ?></p>
+                <p class="producto_nombre"><?php echo '$ ' . $plataforma->precio ?></p>
+                <input class="producto_cantidad" name="cantidad" type="number" placeholder="Cantidad" min="1">
+                <input class="boton-verde" type="submit" value="Comprar" >
+            </form>
+            <p class="nota">Nota: Al dar clic en COMPRAR serás redireccionado a WhatsApp, para continuar con el proceso.</p>
         </div>
     </div>
 </main>

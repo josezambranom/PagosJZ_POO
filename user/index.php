@@ -2,6 +2,7 @@
 
 use App\Cuenta;
 use App\Plataforma;
+use App\Usuario;
 
 require '../includes/app.php';
 incluirTemplate('header');
@@ -11,6 +12,7 @@ $id = $_SESSION['id'];
 
 $plataformas = Plataforma::all();
 $cuentas = Cuenta::all();
+$usuario = Usuario::find($id);
 ?>
 
 <main class="contenedor seccion">
@@ -34,7 +36,7 @@ $cuentas = Cuenta::all();
         <tbody>
             <?php foreach ($cuentas as $cuenta): ?>
                 <?php foreach ($plataformas as $plataforma): ?>
-                    <?php if ($plataforma->usuarioid === $id && $plataforma->id === $cuenta->plataformaid): ?>
+                    <?php if ($plataforma->id === $cuenta->plataformaid && $cuenta->usuarioid === $usuario->id): ?>
                         <?php
                             $diasRestantes = calcularDiasRestantes($cuenta->fecha, $cuenta->vigencia);
                         ?>
@@ -44,8 +46,8 @@ $cuentas = Cuenta::all();
                             <td><?php echo $plataforma->precio ?></td>
                             <td><?php echo $cuenta->usuario ?></td>
                             <td><?php echo $cuenta->clave ?></td>
-                            <td><?php echo $cuenta->perfil ?></td>
-                            <td><?php echo $cuenta->pin ?></td>
+                            <td><?php echo ($cuenta->perfil === '5') ? 'Cuenta Completa' :'Perfil ' . $cuenta->perfil ?></td>
+                            <td><?php echo ($cuenta->pin) ? $cuenta->pin : 'No aplica'; ?></td>
                             <td><?php echo $cuenta->fecha ?></td>
                             <td><?php echo $diasRestantes ?></td>
                         </tr>

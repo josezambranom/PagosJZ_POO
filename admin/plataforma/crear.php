@@ -14,9 +14,14 @@
     $personas = Persona::all();
     $errores = Plataforma::getErrores();
 
+    $id = $_SESSION['id'] ?? false;
+
     if($_SERVER['REQUEST_METHOD'] === 'POST') {
         
         $plataforma = new Plataforma($_POST['plataforma']);
+        
+        $plataforma->usuarioid = $id;
+
         
         //debugear($plataforma);
         // Subida de archivos

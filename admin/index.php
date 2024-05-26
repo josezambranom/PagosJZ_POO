@@ -57,7 +57,7 @@
                 <th>Plataforma</th>
                 <th>Precio</th>
                 <th>Estado</th>
-                <th>Usuario</th>
+                <th>Creado por</th>
                 <th>Acciones</th>
             </tr>
         </thead>

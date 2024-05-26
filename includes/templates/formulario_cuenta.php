@@ -55,13 +55,17 @@
         <label for="usuarioid">Usuario</label>
         <select name="cuenta[usuarioid]" id="usuarioid">
             <option selected value="">-- Seleccione una opción --</option>
-            <?php foreach ($usuarios as $usuario): ?>
+            <?php foreach ($usuarios as $usuario): 
+                $tipouser = idTipoUsuario($usuario->tipousuario);
+                if ($tipouser === 'Administrador') continue; ?>
                 <option <?php echo ($usuario->id === $cuenta->usuarioid) ? 'selected' : ''; ?>
                     value="<?php echo s($usuario->id) ?>">
                     <?php 
                         foreach ($personas as $persona) {
-                            echo ($usuario->personaid === $persona->id) ? $persona->nombre 
-                            . " " . $persona->apellido . " - " . idTipoUsuario($usuario->tipousuario) : '';
+                            if ($usuario->personaid === $persona->id) {
+                                echo $persona->nombre 
+                                . " " . $persona->apellido;
+                            }
                         }
                     ?>
                 </option>
