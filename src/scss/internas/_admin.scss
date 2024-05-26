@@ -1,9 +1,7 @@
 table.tabla {
-    margin: 2rem auto auto auto;
-    width: auto;
     border-spacing: 0;
     text-align: center;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
 
     thead {
         background-color: $primarioOscuro;
@@ -13,24 +11,22 @@ table.tabla {
         }
     }
 
-    .titulo {
-        width: 5rem;
-    }
-
-    .imagen-tabla {
-        width: 5rem;
+    img {
+        width: 10rem;
+        border-radius: 2rem;
     }
 }
 
-@include tablet {
+.imagen-smoll {
+    width: 20rem;
+}
+
+@include desktop {
     table.tabla {
-        width: 80%;
-        font-size: inherit;
+        width: 100%;
+        font-size: 2rem;
         thead th {
             padding: 2rem;
-        }
-        .titulo {
-            width: auto;
         }
         .imagen-tabla {
             width: 10rem;
@@ -38,6 +34,43 @@ table.tabla {
     }
 }
 
-.imagen-smoll {
-    width: 20rem;
+@include telefonomax {
+    table.tabla {
+        width: 100%; // Asegurarse de que la tabla ocupe todo el ancho disponible en móviles
+        font-size: 1.5rem; // Reducir el tamaño de la fuente para mejorar la legibilidad en móviles
+        display: block; // Cambiar a un diseño de bloque para móviles
+
+        tbody,
+        tr {
+            display: block; // Cambiar las filas a un diseño de bloque para móviles
+            margin-bottom: 1rem; // Agregar espacio entre las celdas en móviles
+        }
+
+        td {
+            display: flex; // Utilizar flexbox para alinear el contenido de las celdas
+            align-items: center;
+            justify-content: center; // Alinear el contenido a lo largo de la fila
+            padding: 0.5rem; // Agregar relleno a las celdas en móviles
+        }
+
+        th {
+            display: block; // Ocultar los encabezados en móviles para que la tabla se vea como una lista
+        }
+
+        thead {
+            display: block;
+            width: 20rem;
+            margin: 0 auto;
+        }
+
+        .accion {
+            display: block;
+            margin: 0 auto;
+            width: 20rem;
+        }
+
+        .imagen-tabla {
+            width: 15rem; // Permitir que las columnas se ajusten automáticamente en móviles
+        }
+    }
 }

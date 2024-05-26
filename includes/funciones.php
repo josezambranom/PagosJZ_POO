@@ -106,3 +106,15 @@ function calcularDiasRestantes($fecha_inicial, $dias_restantes) {
     $diasRestantes = max(0, $dias_restantes - $diferencia);
     return $diasRestantes;
 }
+
+function enviarMensaje($plataforma, $cantidad, $precio) {
+    $num = '593963177642';
+    $msg = '¡Hola! 👋🏻, estoy comprando desde la tienda online. Deseo *' . $cantidad . '* cuenta(s) de *'
+        . $plataforma . '*. *Nota:* El valor de mi compra es de $ ' . $cantidad*$precio;
+    
+        $urlVenta = "whatsapp://send?phone=" . urlencode($num) . "&text=" . urlencode($msg);
+
+    // Redireccionar a la página de venta
+    header("Location: " . $urlVenta);
+    exit; // Asegura que el script se detenga después de la redirección
+}

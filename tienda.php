@@ -17,7 +17,7 @@
                 <?php foreach($plataformas as $plataforma):
                     if ($plataforma->estado === '1') { ?>
                     <div class="producto">
-                        <a href="producto.html">
+                        <a href="producto.php?id=<?php echo $plataforma->id ?>">
                             <img class="producto__imagen" loading="lazy" src="/imagenes/<?php echo $plataforma->imagen ?>" alt="avatar">
                             <div class="producto__informacion">
                                 <p class="producto__nombre"><?php echo $plataforma->plataforma ?></p>

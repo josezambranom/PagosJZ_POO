@@ -44,12 +44,12 @@
             <p class="alerta exito"><?php echo s($mensaje); ?></p>
     <?php } ?>
     
-    <a class="boton boton-verde" href="/admin/plataforma/crear.php">Añadir Plataforma</a>
-    <a class="boton boton-verde" href="/admin/cuenta/crear.php">Añadir Cuenta</a>
+    <a class="boton-verde" href="/admin/plataforma/crear.php">Añadir Plataforma</a>
+    <a class="boton-verde" href="/admin/cuenta/crear.php">Añadir Cuenta</a>
 
     <h2>Plataformas</h2>
 
-    <table class="tabla">
+    <table class="tabla ">
         <thead>
             <tr>
                 <th>Id</th>
