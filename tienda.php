@@ -3,9 +3,10 @@
     use App\Plataforma;
 
     require 'includes/app.php';
-    incluirTemplate('header');
 
     $plataformas = Plataforma::allorder();
+    
+    incluirTemplate('header');
 ?>
 
 <main class="contenedor">

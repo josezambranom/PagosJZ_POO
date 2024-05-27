@@ -5,7 +5,6 @@
     use App\Usuario;
 
     require '../includes/app.php';
-    incluirTemplate('header');
 
     estaAutenticado();
     $plataformas = Plataforma::all();
@@ -34,6 +33,7 @@
             }      
         }
     }
+    incluirTemplate('header');
 ?>
 
 <main class="contenedor seccion">

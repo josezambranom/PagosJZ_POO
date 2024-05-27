@@ -1,6 +1,5 @@
 <?php
     require '../../includes/app.php';
-    incluirTemplate('header');
     estaAutenticado();
 
 use App\Persona;
@@ -63,6 +62,8 @@ use Intervention\Image\ImageManager;
             }
         }
     }
+
+    incluirTemplate('header');
 ?>
 
 <main class="contenedor seccion">

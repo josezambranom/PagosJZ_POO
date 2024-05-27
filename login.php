@@ -1,6 +1,5 @@
 <?php
     require 'includes/app.php';
-    incluirTemplate('header');
 
     use App\Usuario;
 
@@ -44,6 +43,8 @@
             $alert = 'Usuario no registrado';
         }
     }
+
+    incluirTemplate('header');
 ?>
 
 <main class="contenedor seccion">

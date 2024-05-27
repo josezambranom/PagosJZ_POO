@@ -5,7 +5,6 @@ use App\Plataforma;
 use App\Usuario;
 
 require '../includes/app.php';
-incluirTemplate('header');
 estaAutenticado();
 
 $id = $_SESSION['id'];
@@ -13,6 +12,8 @@ $id = $_SESSION['id'];
 $plataformas = Plataforma::all();
 $cuentas = Cuenta::all();
 $usuario = Usuario::find($id);
+
+incluirTemplate('header');
 ?>
 
 <main class="contenedor seccion">
@@ -43,7 +44,7 @@ $usuario = Usuario::find($id);
                         <tr>
                             <td><img class="imagen-tabla" src="/imagenes/<?php echo $plataforma->imagen ?>" alt="Imagen de la plataforma"></td>
                             <td class="titulo"><?php echo $plataforma->plataforma ?></td>
-                            <td><?php echo $plataforma->precio ?></td>
+                            <td><?php echo '$ ' . $plataforma->precio ?></td>
                             <td><?php echo $cuenta->usuario ?></td>
                             <td><?php echo $cuenta->clave ?></td>
                             <td><?php echo ($cuenta->perfil === '5') ? 'Cuenta Completa' :'Perfil ' . $cuenta->perfil ?></td>

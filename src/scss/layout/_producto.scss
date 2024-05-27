@@ -55,33 +55,80 @@
     grid-column: 1 / 3;
 }
 
-.producto {
-    &_form {
+.product {
+    text-align: center;
+    &__form {
         p {
-            text-align: left;
             margin: 1rem 0;
+            text-align: center;
+        }
+
+        input {
+            margin: 0 auto;
+        }
+
+        .boton-verde {
+            display: block;
+            margin-top: 2rem;
+            width: 20rem;
         }
     }
-    &_plataforma {
+
+    &__plataforma {
         font-family: $fuente_principal;
         font-size: 2.5rem;
     }
-    &_precio {
+
+    &__precio {
         font-size: 2rem;
     }
-    &_cantidad {
+
+    &__cantidad {
         width: 20rem;
         margin-right: 5rem;
         border: .2rem solid $gris;
         padding: .8rem;
     }
-    @include telefonomax {
-        .producto_form {
-            margin: 0 auto;
+
+    &__img {
+        width: 20rem;
+        border-radius: 3rem;
+    }
+
+    .nota {
+        font-size: 1.5rem;
+        text-align: justify;
+        margin-top: 3rem;
+
+        span {
+            font-weight: $bold;
         }
     }
 }
-.nota {
-    font-size: 1.5rem;
-    margin-top: 3rem;
+
+@include tablet {
+    .product {
+        display: flex;  
+        align-items: center;
+        justify-content: center;
+        text-align: left;
+        
+        p {
+            text-align: left;
+        }
+        
+        &__form {
+            margin-left: 5rem;
+
+            .boton-verde {
+                display: initial;
+                margin-left: 3rem;
+            }
+        }
+
+        .nota {
+            width: 40rem;
+            margin-left: 5rem;
+        }
+    }
 }

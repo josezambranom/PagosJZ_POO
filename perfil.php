@@ -3,37 +3,37 @@
 
     use App\Persona;
     use App\Usuario;
+    estaAutenticado();
 
-    $persona = new Persona();
-    $usuario = new Usuario();
+    // Validar por ID valido
+    $id = $_SESSION['id'];
+
+    $persona = Persona::find($id);
+    $usuario = Usuario::find($id);
 
     // Arreglo con mensajes de errores
     $errores = Persona::getErrores();
     $errores = Usuario::getErrores();
 
-    $registro = Persona::all();
-    foreach ($registro as $r){
-        $id = $r->id+1;
-    }
-
     $resultado = $_GET['result'] ?? null;
 
      // Ejecutar el código después de que el usuario envía el form
      if($_SERVER['REQUEST_METHOD'] === 'POST') {
-        $persona = new Persona($_POST['persona']);
-        $usuario = new Usuario($_POST['usuario']);
+        $persona_arg = ($_POST['persona']);
+        $usuario_arg = ($_POST['usuario']);
+
+        $persona->sincronizar($persona_arg);
+        $usuario->sincronizar($usuario_arg);
 
         $errores = $persona->validar();
         $errores = $usuario->validar();
 
-        $usuario->tipousuario = '0';
-        $usuario->personaid = $id;
         $usuario->clave = hashPassword($usuario->clave);
 
         if(empty($errores)) {
             if($persona->guardar()) {
                 if($usuario->guardar()) {
-                    header('Location: /registro.php?result=1');
+                    header('Location: /registro.php?result=2');
                 }
             }
         }
@@ -44,7 +44,7 @@
 ?>
 
 <main class="contenedor seccion">
-        <h1>Registro</h1>
+        <h1>Mi Perfil</h1>
 
         <?php foreach($errores as $error): ?>
             <div class="alerta error">
@@ -58,9 +58,11 @@
                 <p class="alerta exito"><?php echo s($mensaje); ?></p>
         <?php } ?>
 
+        <h2>Actualizar mis datos</h2>
+
         <form class="formulario" method="POST">
             <?php include 'includes/templates/formulario_registro.php'; ?>
-            <input class="boton boton-rojo" type="submit" value="Registrar">
+            <input class="boton boton-rojo" type="submit" value="Actualizar mis datos">
         </form>
 
     </main>

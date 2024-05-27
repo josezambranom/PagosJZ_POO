@@ -1,6 +1,5 @@
 <?php
     require '../../includes/app.php';
-    incluirTemplate('header');
     
     estaAutenticado();
 
@@ -40,6 +39,8 @@
             }
         }
     }
+
+    incluirTemplate('header');
 ?>
 
 <main class="contenedor seccion">
