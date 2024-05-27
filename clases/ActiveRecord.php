@@ -168,7 +168,7 @@ class ActiveRecord {
     }
 
     public static function findcond($cond, $id) {
-        $query = "SELECT * FROM " . static::$tabla . " WHERE {$cond} = {$id}";
+        $query = "SELECT * FROM " . static::$tabla . " WHERE {$cond} = '{$id}'";
         $result = self::consultarSQL($query);
         return array_shift($result);
     }

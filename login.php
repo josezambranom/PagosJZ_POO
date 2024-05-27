@@ -6,6 +6,8 @@
     $email = Usuario::all();
     $errores = Usuario::getErrores();
 
+    $resultado = $_GET['result'] ?? null;
+
     $tipousuario = '';
     $alert = '';
     $auth = '';
@@ -64,6 +66,12 @@
                 <?php echo $alert?>
             </div>
         <?php }?>
+
+        <?php
+            $mensaje = mostrarMensaje(intval($resultado));
+            if($mensaje) { ?>
+                <p class="alerta exito"><?php echo s($mensaje); ?></p>
+        <?php } ?>
 
         <form id="form" class="formulario" method="POST">
             <?php include 'includes/templates/formulario_login.php'; ?>

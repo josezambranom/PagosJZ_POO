@@ -60,6 +60,9 @@ function mostrarMensaje($codigo) {
         case 4:
             $mensaje = 'No es posible ejecutar la operación, verifique restricciones';
         break;
+        case 5:
+            $mensaje = 'Email verificado con éxito';
+        break;
         default:
             $mensaje = false;
         break;
