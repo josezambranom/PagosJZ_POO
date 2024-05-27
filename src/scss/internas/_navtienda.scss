@@ -1,0 +1,49 @@
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5rem;
+    text-align: center;
+
+    &__tienda {
+        border: .2rem solid $negro;
+        border-radius: 2rem;
+        padding: 1rem;
+
+        &:hover {
+            background-color: $gris;
+            animation: rebote 1.5s infinite;
+        }
+
+        &__imagen {
+            width: 10rem;
+        }
+
+        &__nombre {
+            width: 15rem;
+            font-family: $fuente_principal;
+            font-size: 1.8rem;
+            text-align: center;
+        }
+    }
+}
+
+@include telefonomax {
+    .nav {
+        display: block;
+        width: 15rem;
+        margin: 0 auto;
+
+        &__tienda {
+            margin: 3rem 0;
+
+            &__imagen {
+                width: 8rem;
+            }
+
+            &__nombre {
+                width: auto;
+            }
+        }
+    }           
+}

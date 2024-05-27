@@ -4,7 +4,7 @@ namespace App;
 
 class Plataforma extends ActiveRecord {
     protected static $tabla = "plataforma";
-    protected static $columnasDB = ["id", "imagen", "plataforma", "precio", "estado", "usuarioid"];
+    protected static $columnasDB = ["id", "imagen", "plataforma", "precio", "estado", "categoria", "usuarioid"];
     protected static $columna = "plataforma";
 
     public $id;
@@ -12,6 +12,7 @@ class Plataforma extends ActiveRecord {
     public $plataforma;
     public $precio;
     public $estado;
+    public $categoria;
     public $usuarioid;
 
     public function __construct($args = []) {
@@ -20,6 +21,7 @@ class Plataforma extends ActiveRecord {
         $this->plataforma = $args['plataforma'] ?? '';
         $this->precio = $args['precio'] ?? '';
         $this->estado = $args['estado'] ?? '';
+        $this->categoria = $args['categoria'] ?? '';
         $this->usuarioid = $args['usuarioid'] ?? '';
     }
 
@@ -35,6 +37,9 @@ class Plataforma extends ActiveRecord {
         }
         if(!$this->estado){
             self::$errores[] = "Debes seleccionar un estado";
+        }
+        if(!$this->categoria){
+            self::$errores[] = "Debes seleccionar una categoría";
         }
         return self::$errores;
     }

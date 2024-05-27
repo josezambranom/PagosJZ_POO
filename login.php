@@ -22,13 +22,17 @@
                     if($auth) {
                         $url = tipoUsuario($user->tipousuario);
                         if($url !== '') {
-                            session_start();
-                            // Llenar el arreglo de la sesión
-                            $_SESSION['id'] = $user->id;
-                            $_SESSION['usuario'] = $user->email;
-                            $_SESSION['login'] = true;
-                            $_SESSION['tipoid'] = $user->tipousuario;
-                            header('Location: /' . $url);
+                            if($user->confirmado === '1') {
+                                session_start();
+                                // Llenar el arreglo de la sesión
+                                $_SESSION['id'] = $user->id;
+                                $_SESSION['usuario'] = $user->email;
+                                $_SESSION['login'] = true;
+                                $_SESSION['tipoid'] = $user->tipousuario;
+                                header('Location: /' . $url);
+                            } else {
+                                $alert = 'Email no verificado, por favor revise su bandeja de entrada';
+                            }
                         } else {
                             $alert = 'No es posible inciar sesión';
                         }                        
@@ -37,10 +41,9 @@
                     }
                 }
             }
-        }
-
-        if (!$alert){
-            $alert = 'Usuario no registrado';
+            if (!$alert){
+                $alert = 'Usuario no registrado';
+            }
         }
     }
 

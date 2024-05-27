@@ -26,7 +26,7 @@
     <?php } ?>
 
     <div class="product">
-        <img class="product__img" src="/imagenes/<?php echo $plataforma->imagen ?>" alt=carrito">
+        <img class="product__img" src="/imagenes/<?php echo categoria($plataforma->categoria)?>/<?php echo $plataforma->imagen?>" alt=avatar">
         <div class="product__contenido">
             <form class="product__form" method="POST">
                 <p class="product__plataforma"><?php echo $plataforma->plataforma ?></p>
@@ -34,7 +34,7 @@
                 <input class="product__cantidad" name="cantidad" type="number" placeholder="Cantidad" min="1">
                 <input class="boton-verde" type="submit" value="Comprar" >
             </form>
-            <p class="nota"><span>Nota:</span> Al dar clic en COMPRAR serás redireccionado a WhatsApp, para continuar con el proceso.</p>
+            <p class="nota"><span class="negrita">Nota:</span> Al dar clic en COMPRAR serás redireccionado a WhatsApp, para continuar con el proceso.</p>
         </div>
     </div>
 </main>

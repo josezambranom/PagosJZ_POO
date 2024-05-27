@@ -19,21 +19,26 @@
 
      // Ejecutar el código después de que el usuario envía el form
      if($_SERVER['REQUEST_METHOD'] === 'POST') {
-        $persona_arg = ($_POST['persona']);
-        $usuario_arg = ($_POST['usuario']);
+        if($_POST['persona']) {
+            $persona_arg = ($_POST['persona']);
+            ($persona_arg) ? $persona->sincronizar($persona_arg): '';
 
-        $persona->sincronizar($persona_arg);
-        $usuario->sincronizar($usuario_arg);
+            $errores = $persona->validar();   
+        }
 
-        $errores = $persona->validar();
-        $errores = $usuario->validar();
+        if($_POST['usuario']) {
 
-        $usuario->clave = hashPassword($usuario->clave);
+            $usuario_arg = ($_POST['usuario']);
+            ($usuario_arg) ? $usuario->sincronizar($usuario_arg): '';
+
+            $errores = $usuario->validar();
+            $usuario->clave = hashPassword($usuario->clave);
+        }
 
         if(empty($errores)) {
             if($persona->guardar()) {
                 if($usuario->guardar()) {
-                    header('Location: /registro.php?result=2');
+                    header('Location: /perfil.php?result=2');
                 }
             }
         }
@@ -61,8 +66,25 @@
         <h2>Actualizar mis datos</h2>
 
         <form class="formulario" method="POST">
-            <?php include 'includes/templates/formulario_registro.php'; ?>
+            <?php include 'includes/templates/formulario_usuario.php'; ?>
             <input class="boton boton-rojo" type="submit" value="Actualizar mis datos">
+        </form>
+
+        <button id="boton" class="boton-verde" onclick="mostrarCampo()">Cambiar Contraseña</button>
+
+        <form id="ocultar" class="formulario hidden" method="POST">
+        <fieldset>
+            <legend>Información Usuario</legend>
+            <label for="clave">Nueva Clave</label>
+            <input type='hidden' name="persona[]" value="">
+            <input type="password" name="usuario[clave]" id="clave" placeholder="Ingrese su Contraseña"
+                 minlength="8" maxlength="15" require-->
+            <div class="mostrarClave">
+                <input type="checkbox" class="toggle">
+                <p>Mostrar Contraseña</p>
+            </div>
+        </fieldset>
+            <input class="boton boton-rojo" type="submit" value="Actualizar Contraseña">
         </form>
 
     </main>

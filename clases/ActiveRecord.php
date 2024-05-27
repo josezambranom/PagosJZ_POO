@@ -167,6 +167,12 @@ class ActiveRecord {
         return array_shift($result);
     }
 
+    public static function findcond($cond, $id) {
+        $query = "SELECT * FROM " . static::$tabla . " WHERE {$cond} = {$id}";
+        $result = self::consultarSQL($query);
+        return array_shift($result);
+    }
+
     public static function consultarSQL($query) {
         // Consultar la DB
         $resultado = self::$db->query($query);

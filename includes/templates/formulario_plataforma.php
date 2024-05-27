@@ -16,11 +16,19 @@
         <option <?php echo ($plataforma->estado === '0') ? 'selected' : ''; ?> value="0">Agotado</option>
     </select>
 
+    <label for="categoria">Categoria</label>
+    <select name="plataforma[categoria]" id="categoria">
+        <option selected value="">-- Seleccione una opción --</option>
+        <option <?php echo ($plataforma->categoria === '1') ? 'selected' : ''; ?> value="1">Streaming</option>
+        <option <?php echo ($plataforma->categoria === '2') ? 'selected' : ''; ?> value="2">Juegos</option>
+        <option <?php echo ($plataforma->categoria === '3') ? 'selected' : ''; ?> value="3">Recargas Móviles y TV</option>
+    </select>
+
     <label for="imagen">Imagen</label>
     <input type="file" name="plataforma[imagen]" id="imagen" accept="image/jpeg, image/png" require>
 
     <?php if ($plataforma->imagen): ?> 
-        <img src="/imagenes/<?php echo $plataforma->imagen; ?>" class="imagen-smoll">
+        <img src="/imagenes/<?php echo $plataforma->categoria?>/<?php echo $plataforma->imagen; ?>" class="imagen-smoll">
     <?php endif;?>
 
 </fieldset>

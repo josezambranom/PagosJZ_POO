@@ -2,10 +2,13 @@
 
 define ('TEMPLATES_URL', __DIR__ . '/templates');
 define ('FUNCIONES_URL',  'funciones.php');
-define ('CARPETA_IMAGENES', __DIR__ . '/../imagenes/');
 
 function incluirTemplate(string $nombre, bool $inicio = false) {
     include TEMPLATES_URL . "/{$nombre}.php";
+}
+
+function rutaimagen(string $categoria) {
+    define ('CARPETA_IMAGENES', __DIR__ . '/../imagenes/' . $categoria . '/');
 }
 
 function estaAutenticado() {
@@ -116,4 +119,18 @@ function enviarMensaje($plataforma, $cantidad, $precio) {
 
     // Redireccionar a la página de venta
     header("Location: " . $urlVenta);
+}
+
+function categoria($c) {
+    switch($c) {
+        case '1':
+            return 'streaming';
+        break;
+        case '2':
+            return 'videojuegos';
+        break;
+        case '3':
+            return 'recargas';
+        break;
+    }
 }

@@ -4,12 +4,14 @@ namespace App;
 
 class Usuario extends ActiveRecord {
     protected static $tabla = "usuario";
-    protected static $columnasDB = ["id", "email", "clave", "tipousuario", "personaid"];
+    protected static $columnasDB = ["id", "email", "clave", "tipousuario", "confirmado", "token", "personaid"];
 
     public $id;
     public $email;
     public $clave;
     public $tipousuario;
+    public $confirmado;
+    public $token;
     public $personaid;
 
     public function __construct($args = []) {
@@ -17,6 +19,8 @@ class Usuario extends ActiveRecord {
         $this->email = $args['email'] ?? '';
         $this->clave = $args['clave'] ?? '';
         $this->tipousuario = $args['tipousuario'] ?? "";
+        $this->confirmado = $args['confirmado'] ?? "0";
+        $this->token = $args['token'] ?? '';
         $this->personaid = $args['personaid'] ?? "";
     }
 

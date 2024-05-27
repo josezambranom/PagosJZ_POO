@@ -6,4 +6,8 @@
 
     <label for="clave">Clave</label>
     <input type="password" name="usuario[clave]" id="clave" placeholder="Ingrese Contraseña">
+    <div class="mostrarClave">
+        <input type="checkbox" class="toggle">
+        <p>Mostrar Contraseña</p>
+    </div>
 </fieldset>

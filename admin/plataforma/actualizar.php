@@ -25,6 +25,12 @@ use Intervention\Image\ImageManager;
 
         $arg = $_POST['plataforma'];
         $plataforma->sincronizar($arg);
+
+        if($plataforma->categoria) {
+            $categoria = categoria($plataforma->categoria);
+            rutaimagen($categoria);
+        }
+
         // Subida de archivos
         $manager = new ImageManager(
             new Intervention\Image\Drivers\Gd\Driver()

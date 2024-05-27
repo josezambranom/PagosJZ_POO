@@ -1,4 +1,5 @@
 .formulario {
+    margin-top: 2rem;
     p {
         font-size: 1.4rem;
         color: $grisOscuro;
@@ -43,5 +44,11 @@
     input[type="radio"] {
         margin: 0;
         width: auto;
+    }
+
+    .mostrarClave {
+        display: flex;
+        align-items:center;
+        width: 10rem;
     }
 }

@@ -18,6 +18,8 @@
 
     $resultado = $_GET['result'] ?? null;
 
+    $token = bin2hex(random_bytes(7));
+
      // Ejecutar el código después de que el usuario envía el form
      if($_SERVER['REQUEST_METHOD'] === 'POST') {
         $persona = new Persona($_POST['persona']);
@@ -28,8 +30,11 @@
 
         $usuario->tipousuario = '0';
         $usuario->personaid = $id;
+        $usuario->token = $token;
         $usuario->clave = hashPassword($usuario->clave);
 
+        debugear($usuario);
+        
         if(empty($errores)) {
             if($persona->guardar()) {
                 if($usuario->guardar()) {

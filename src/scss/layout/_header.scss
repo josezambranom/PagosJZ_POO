@@ -12,3 +12,13 @@
     }
 }
 
+@include telefonomax {
+    .header {
+        padding: 1.5rem;
+
+        .logo__img {
+            width: 18rem;
+        }
+    }
+}
+

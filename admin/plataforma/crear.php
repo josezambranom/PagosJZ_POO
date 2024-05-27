@@ -29,6 +29,8 @@
         );
         // Generar nombre unico
         $nombreImagen = md5(uniqid(rand(), true)) . ".webp"; // Usar .webp como extensión
+        $categoria = categoria($plataforma->categoria);
+        rutaimagen($categoria);
         
         // Setear la imagen
         // Realiza un resize a la imagen con Intervention

@@ -57,6 +57,7 @@
                 <th>Plataforma</th>
                 <th>Precio</th>
                 <th>Estado</th>
+                <th>Categoría</th>
                 <th>Creado por</th>
                 <th>Acciones</th>
             </tr>
@@ -65,10 +66,11 @@
             <?php foreach($plataformas as $plataforma):?>
             <tr>
                 <td><?php echo $plataforma->id ?></td>
-                <td><img class="imagen-tabla" src='/imagenes/<?php echo $plataforma->imagen?>'></td>
+                <td><img class="imagen-tabla" src='/imagenes/<?php echo categoria($plataforma->categoria)?>/<?php echo $plataforma->imagen?>' alt="avatar"></td>
                 <td class="titulo"><?php echo $plataforma->plataforma ?></td>
                 <td><?php echo '$ ' . $plataforma->precio ?></td>
                 <td><?php echo ($plataforma->estado === '1') ? 'Disponible' : 'Agotado' ?></td>
+                <td><?php echo categoria($plataforma->categoria); ?></td>
                 <td><?php foreach ($usuarios as $usuario){
                     if($plataforma->usuarioid === $usuario->id) {
                         foreach ($personas as $persona) {
@@ -83,7 +85,7 @@
                         <input type="hidden" name="tipo" value="plataforma">
                         <input type="submit" class="boton-rojo-block" value="Eliminar">
                     </form>
-                    <a href="/admin/plataforma/actualizar.php?id=<?php echo $plataforma->id ?>" 
+                    <a href="/admin/plataforma/actualizar.php?id=<?php echo s($plataforma->id) ?>" 
                     class="boton-verde-block">Actualizar</a>
                 </td>
             </tr>
@@ -136,7 +138,7 @@
                         <input type="hidden" name="tipo" value="cuenta">
                         <input type="submit" class="boton-rojo-block" value="Eliminar">
                     </form>
-                    <a href="/admin/cuenta/actualizar.php?id=<?php echo $cuenta->id ?>" 
+                    <a href="/admin/cuenta/actualizar.php?id=<?php echo s($cuenta->id) ?>" 
                     class="boton-verde-block">Actualizar</a>
                 </td>
             </tr>
