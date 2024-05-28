@@ -137,3 +137,8 @@ function categoria($c) {
         break;
     }
 }
+
+function generarToken() {
+   $token = bin2hex(random_bytes(7));
+   return $token;
+}

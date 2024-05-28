@@ -42,7 +42,7 @@ incluirTemplate('header');
                             $diasRestantes = calcularDiasRestantes($cuenta->fecha, $cuenta->vigencia);
                         ?>
                         <tr>
-                            <td><img class="imagen-tabla" src="/imagenes/<?php echo $plataforma->imagen ?>" alt="Imagen de la plataforma"></td>
+                            <td><img class="imagen-tabla" src='/imagenes/<?php echo categoria($plataforma->categoria)?>/<?php echo $plataforma->imagen?>' alt="avatar"></td>
                             <td class="titulo"><?php echo $plataforma->plataforma ?></td>
                             <td><?php echo '$ ' . $plataforma->precio ?></td>
                             <td><?php echo $cuenta->usuario ?></td>

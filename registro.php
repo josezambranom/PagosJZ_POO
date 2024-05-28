@@ -18,7 +18,7 @@
 
     $resultado = $_GET['result'] ?? null;
 
-    $token = bin2hex(random_bytes(7));
+    $token = generarToken();
 
      // Ejecutar el código después de que el usuario envía el form
      if($_SERVER['REQUEST_METHOD'] === 'POST') {

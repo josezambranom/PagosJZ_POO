@@ -11,3 +11,6 @@
         <p>Mostrar Contraseña</p>
     </div>
 </fieldset>
+    <div>
+        <p>¿Olvidaste tu contraseña?<span> <a href="recuperar.php">Click aquí</a></span></p>
+    </div>

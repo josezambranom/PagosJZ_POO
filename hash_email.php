@@ -18,8 +18,8 @@ use App\Usuario;
         $usuario->guardar();
 
         header('Location: /login.php?result=5');
-    } 
-
-    debugear($usuario);
+    } else {
+        header('Location: /');
+    }
 
 ?>
