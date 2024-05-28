@@ -10,7 +10,7 @@ use App\Usuario;
 
     if ($token) 
     {
-        $usuario = Usuario::findcond('token', $token);
+        $usuario = Usuario::findcond('token', $token) ?? header('Location: /');
         
         $usuario->confirmado = '1';
         $usuario->token = '';

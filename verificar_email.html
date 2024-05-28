@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang='es'>
+
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Verificación de Cuenta</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .content {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .content h1 {
+            color: #333333;
+        }
+
+        .content p {
+            color: #555555;
+            line-height: 1.5;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #ffffff;
+            background-color: #007bff;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 10px;
+            font-size: 12px;
+            color: #777777;
+            background-color: #f4f4f4;
+        }
+    </style>
+</head>
+
+<body>
+    <div class='container'>
+        <div class='content'>
+            <h1>¡Bienvenido a Punto de Pagos "JZ"!</h1>
+            <p>Gracias por registrarte. Para completar tu registro, por favor verifica tu cuenta haciendo clic en el
+                siguiente botón:</p>
+            <a href='localhost/hash_email.php?token=$token' class='button'>Verificar Cuenta</a>
+        </div>
+        <div class='footer'>
+            <p>Si no solicitaste esta verificación, por favor ignora este correo.</p>
+            <p>&copy; Punto de Pagos JZ - Todos los derechos reservados.</p>
+        </div>
+    </div>
+</body>
+
+</html>"
