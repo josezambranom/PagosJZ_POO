@@ -25,12 +25,16 @@
         <option <?php echo ($cuenta->perfil === '5') ? 'selected' : ''; ?> value="5">Todos</option>
     </select>
 
+    <label for="fecha">Fecha Inicio</label>
+    <input type="date" name="cuenta[fecha]" id="fecha"
+        value="<?php echo s($cuenta->fecha)?>" require>
+
     <label for="vigencia">Vigencia</label>
     <select name="cuenta[vigencia]" id="vigencia">
         <option selected value="">-- Seleccione una opción --</option>
-        <option <?php echo ($cuenta->vigencia === '28') ? 'selected' : ''; ?> value="28">1 Mes</option>
-        <option <?php echo ($cuenta->vigencia === '56') ? 'selected' : ''; ?> value="56">2 Meses</option>
-        <option <?php echo ($cuenta->vigencia === '84') ? 'selected' : ''; ?> value="84">3 Meses</option>
+        <option <?php echo ($cuenta->vigencia === '29') ? 'selected' : ''; ?> value="29">1 Mes</option>
+        <option <?php echo ($cuenta->vigencia === '57') ? 'selected' : ''; ?> value="57">2 Meses</option>
+        <option <?php echo ($cuenta->vigencia === '96') ? 'selected' : ''; ?> value="96">3 Meses</option>
     </select>
 </fieldset>
 

@@ -28,7 +28,7 @@
     <input type="file" name="plataforma[imagen]" id="imagen" accept="image/jpeg, image/png" require>
 
     <?php if ($plataforma->imagen): ?> 
-        <img src="/imagenes/<?php echo $plataforma->categoria?>/<?php echo $plataforma->imagen; ?>" class="imagen-smoll">
+        <img src="/imagenes/<?php echo categoria($plataforma->categoria)?>/<?php echo $plataforma->imagen; ?>" class="imagen-smoll">
     <?php endif;?>
 
 </fieldset>

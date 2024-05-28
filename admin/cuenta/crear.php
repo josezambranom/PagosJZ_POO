@@ -22,7 +22,7 @@
         $cuenta->usuarioid = $id;
         $errores = $cuenta->validar();
         
-        if($cuenta->perfil != 5) {
+        if($cuenta->perfil != 5 && $cuenta->perfil != '') {
             $pin = rand(0000, 9999);
             $cuenta->pin = $pin;
         }

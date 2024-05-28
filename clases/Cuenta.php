@@ -22,7 +22,7 @@ class Cuenta extends ActiveRecord {
         $this->clave = $args['clave'] ?? '';
         $this->pin = $args['pin'] ?? null;
         $this->perfil = $args['perfil'] ?? '';
-        $this->fecha = date('Y/m/d');
+        $this->fecha = $args['fecha'] ?? '';
         $this->vigencia = $args['vigencia'] ?? '';
         $this->usuarioid = $args['usuarioid'] ?? '';
         $this->plataformaid = $args['plataformaid'] ?? '';
@@ -40,6 +40,9 @@ class Cuenta extends ActiveRecord {
         }
         if(!$this->plataformaid){
             self::$errores[] = "Debes seleccionar una plataforma";
+        }
+        if(!$this->fecha){
+            self::$errores[] = "La fecha es obligatoria";
         }
         if(!$this->vigencia){
             self::$errores[] = "Debes seleccionar el tiempo de duración de la cuenta";

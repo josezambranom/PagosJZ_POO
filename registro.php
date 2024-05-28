@@ -32,8 +32,6 @@
         $usuario->personaid = $id;
         $usuario->token = $token;
         $usuario->clave = hashPassword($usuario->clave);
-
-        debugear($usuario);
         
         if(empty($errores)) {
             if($persona->guardar()) {

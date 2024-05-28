@@ -12,5 +12,5 @@
     </div>
 </fieldset>
     <div>
-        <p>¿Olvidaste tu contraseña?<span> <a href="recuperar.php">Click aquí</a></span></p>
+        <p>¿Olvidaste tu contraseña?<span> <a href="/recover_acc.php">Click aquí</a></span></p>
     </div>
