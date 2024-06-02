@@ -31,7 +31,6 @@ class Usuario extends ActiveRecord {
         if(!$this->clave){
             self::$errores[] = "La clave es obligatoria (Mínimo 8 carácteres)";
         }
-        $this->existeUsuario();
         return self::$errores;
     }
 
@@ -42,5 +41,6 @@ class Usuario extends ActiveRecord {
         if ($resultado->num_rows) {
             self::$errores[] = 'El usuario ingresado ya se encuentra registrado';
         }
+        return self::$errores;
     }
 }

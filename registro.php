@@ -42,6 +42,7 @@
 
         $errores = $persona->validar();
         $errores = $usuario->validar();
+        $errores = $usuario->existeUsuario();
 
         $usuario->tipousuario = '0';
         $usuario->personaid = $id;

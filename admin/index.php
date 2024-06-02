@@ -24,9 +24,11 @@
             if(validarTipoContenido($tipo)){
                 // Compara lo que se va a eliminar
                 if($tipo === "plataforma"){
+                    rutaimagen('plataforma');
                     $plataforma = Plataforma::find($id);
                     ($plataforma->eliminar()) ? header('Location: /admin?result=3') : '';     
                 } elseif($tipo === "cuenta") {
+                    rutaimagen('');
                     $cuenta = Cuenta::find($id);
                     ($cuenta->eliminar()) ? header('Location: /admin?result=3') : '';       
                 }
