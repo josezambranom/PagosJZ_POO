@@ -30,7 +30,9 @@
         if($arg['email']) {
             $usuario = Usuario::findcond('email', $arg['email']);
             ($usuario) ? $usuario->token = $token : $errores[] = 'Usuario no existe';
+            ($usuario->confirmado === '0') ? $errores[] = 'Email no verificado' : '' ;
             $email_template = str_replace('$token', $usuario->token, $email_template);
+            $email_template = str_replace('$anio', date('Y'), $email_template);
         } else {
             $errores [] = 'El usuario es obligatorio';
         }

@@ -31,6 +31,16 @@ class Usuario extends ActiveRecord {
         if(!$this->clave){
             self::$errores[] = "La clave es obligatoria (Mínimo 8 carácteres)";
         }
+        $this->existeUsuario();
         return self::$errores;
+    }
+
+    public function existeUsuario() {
+        // Revisar si un usuario existe
+        $query = "SELECT * FROM " . self::$tabla . " WHERE email = '" . $this->email . "' LIMIT 1";
+        $resultado = self::$db->query($query);
+        if ($resultado->num_rows) {
+            self::$errores[] = 'El usuario ingresado ya se encuentra registrado';
+        }
     }
 }

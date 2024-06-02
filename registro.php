@@ -50,6 +50,7 @@
 
         // Reemplaza el token del usuario en el enlace
         $email_template = str_replace('$token', $usuario->token, $email_template);
+        $email_template = str_replace('$anio', date('Y'), $email_template);
         
         if(empty($errores)) {
             if($persona->guardar()) {
