@@ -59,6 +59,7 @@
                     $mail->addAddress($usuario->email);
                     $mail->Subject = 'Confirmacion de Cuenta';
                     $mail->msgHTML($email_template, __DIR__);
+                    $mail->CharSet = 'UTF-8';
                     $mail->send();
                     header('Location: /registro.php?result=1');
                 }
