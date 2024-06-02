@@ -5,7 +5,6 @@ namespace App;
 class Plataforma extends ActiveRecord {
     protected static $tabla = "plataforma";
     protected static $columnasDB = ["id", "imagen", "plataforma", "precio", "estado", "categoria", "usuarioid"];
-    protected static $columna = "plataforma";
 
     public $id;
     public $imagen;
@@ -35,7 +34,7 @@ class Plataforma extends ActiveRecord {
         if(!$this->imagen){
             self::$errores[] = "La imagen de la plataforma es obligatoria";
         }
-        if(!$this->estado){
+        if($this->estado === ""){
             self::$errores[] = "Debes seleccionar un estado";
         }
         if(!$this->categoria){

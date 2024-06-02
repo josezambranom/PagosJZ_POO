@@ -4,7 +4,7 @@
 
     require 'includes/app.php';
 
-    $plataformas = Plataforma::allorder();
+    $plataformas = Plataforma::allorder('plataforma', 'ASC');
     
     incluirTemplate('header');
 ?>

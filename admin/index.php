@@ -7,10 +7,10 @@
     require '../includes/app.php';
 
     estaAutenticado();
-    $plataformas = Plataforma::all();
+    $plataformas = Plataforma::allorder('plataforma', 'ASC');
     $personas = Persona::all();
     $usuarios = Usuario::all();
-    $cuentas = Cuenta::all();
+    $cuentas = Cuenta::allorder('fecha', 'DESC');
 
     $resultado = $_GET['result'] ?? null;
 
@@ -25,10 +25,10 @@
                 // Compara lo que se va a eliminar
                 if($tipo === "plataforma"){
                     $plataforma = Plataforma::find($id);
-                    ($plataforma->eliminar()) ? header('Location: /admin?result=3') : header('Location: /admin?result=4');     
+                    ($plataforma->eliminar()) ? header('Location: /admin?result=3') : '';     
                 } elseif($tipo === "cuenta") {
                     $cuenta = Cuenta::find($id);
-                    ($cuenta->eliminar()) ? header('Location: /admin?result=3') : header('Location: /admin?result=4');       
+                    ($cuenta->eliminar()) ? header('Location: /admin?result=3') : '';       
                 }
             }      
         }
@@ -103,7 +103,7 @@
                 <th>Perfil</th>
                 <th>Usuario</th>
                 <th>Fecha de Compra</th>
-                <th>Vigencia</th>
+                <th>Días Restantes</th>
                 <th>Plataforma</th>
                 <th>Acciones</th>
             </tr>
@@ -111,6 +111,9 @@
         <tbody>
             <?php foreach($cuentas as $cuenta):?>
             <tr>
+                <?php
+                    $diasRestantes = calcularDiasRestantes($cuenta->fecha, $cuenta->vigencia);
+                ?>
                 <td><?php echo $cuenta->id ?></td>
                 <td class="titulo"><?php echo $cuenta->usuario ?></td>
                 <td><?php echo $cuenta->clave ?></td>
@@ -124,7 +127,7 @@
                     }
                 }?></td>
                 <td><?php echo $cuenta->fecha ?></td>
-                <td><?php echo $cuenta->vigencia ?></td>
+                <td><?php echo $diasRestantes ?></td>
                 <td><?php 
                     foreach ($plataformas as $p) {
                         if($p->id === $cuenta->plataformaid){

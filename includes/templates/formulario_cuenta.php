@@ -32,9 +32,11 @@
     <label for="vigencia">Vigencia</label>
     <select name="cuenta[vigencia]" id="vigencia">
         <option selected value="">-- Seleccione una opción --</option>
-        <option <?php echo ($cuenta->vigencia === '29') ? 'selected' : ''; ?> value="29">1 Mes</option>
-        <option <?php echo ($cuenta->vigencia === '57') ? 'selected' : ''; ?> value="57">2 Meses</option>
-        <option <?php echo ($cuenta->vigencia === '96') ? 'selected' : ''; ?> value="96">3 Meses</option>
+        <option <?php echo ($cuenta->vigencia === '30') ? 'selected' : ''; ?> value="30">1 Mes</option>
+        <option <?php echo ($cuenta->vigencia === '60') ? 'selected' : ''; ?> value="60">2 Meses</option>
+        <option <?php echo ($cuenta->vigencia === '90') ? 'selected' : ''; ?> value="90">3 Meses</option>
+        <option <?php echo ($cuenta->vigencia === '180') ? 'selected' : ''; ?> value="180">6 Meses</option>
+        <option <?php echo ($cuenta->vigencia === '360') ? 'selected' : ''; ?> value="360">12 Meses</option>
     </select>
 </fieldset>
 
@@ -60,8 +62,9 @@
         <select name="cuenta[usuarioid]" id="usuarioid">
             <option selected value="">-- Seleccione una opción --</option>
             <?php foreach ($usuarios as $usuario): 
-                $tipouser = idTipoUsuario($usuario->tipousuario);
-                if ($tipouser === 'Administrador') continue; ?>
+                //$tipouser = idTipoUsuario($usuario->tipousuario);
+                //if ($tipouser === 'Administrador') continue; 
+                ?>
                 <option <?php echo ($usuario->id === $cuenta->usuarioid) ? 'selected' : ''; ?>
                     value="<?php echo s($usuario->id) ?>">
                     <?php 

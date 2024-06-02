@@ -116,9 +116,9 @@ function calcularDiasRestantes($fecha_inicial, $dias_restantes) {
 function enviarMensaje($plataforma, $cantidad, $precio) {
     $num = '593963177642';
     $msg = '¡Hola! 👋🏻, estoy comprando desde la tienda online. Deseo *' . $cantidad . '* cuenta(s) de *'
-        . $plataforma . '*. *Nota:* El valor de mi compra es de $ ' . $cantidad*$precio;
+        . $plataforma . '*'. "\n *Nota:* El valor de mi compra es de $ "  . $cantidad*$precio;
     
-        $urlVenta = "whatsapp://send?phone=" . urlencode($num) . "&text=" . urlencode($msg);
+        $urlVenta = "https://api.whatsapp.com/send?phone=" . urlencode($num) . "&text=" . urlencode($msg);
 
     // Redireccionar a la página de venta
     header("Location: " . $urlVenta);

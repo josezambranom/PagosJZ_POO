@@ -10,7 +10,7 @@
 
     $plataforma = new Plataforma();
     $usuarios = Usuario::all();
-    $personas = Persona::all();
+    $personas = Persona::allorder('nombre', 'ASC');
     $errores = Plataforma::getErrores();
 
     $id = $_SESSION['id'] ?? false;

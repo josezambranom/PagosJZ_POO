@@ -10,7 +10,7 @@ estaAutenticado();
 $id = $_SESSION['id'];
 
 $plataformas = Plataforma::all();
-$cuentas = Cuenta::all();
+$cuentas = Cuenta::allorder('fecha', 'DESC');
 $usuario = Usuario::find($id);
 
 incluirTemplate('header');

@@ -7,9 +7,7 @@ class ActiveRecord {
     protected static $db;
     protected static $columnasDB = [];
     protected static $tabla = "";
-
-    protected static $columna = "";
-
+    
     // Errores
     protected static $errores = [];
 
@@ -147,8 +145,8 @@ class ActiveRecord {
         return $result;
     }
 
-    public static function allorder() {
-        $query = "SELECT * FROM " . static::$tabla . " ORDER BY " . static::$columna . ' ASC'; // static se usa para hacer referencia a una clase heredada
+    public static function allorder($columna, $orden) {
+        $query = "SELECT * FROM " . static::$tabla . " ORDER BY " . $columna . ' ' . $orden; // static se usa para hacer referencia a una clase heredada
         $result = self::consultarSQL($query);
         return $result;
     }

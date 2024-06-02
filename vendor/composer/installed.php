@@ -3,7 +3,7 @@
         'name' => 'jose/puntode-pagos-jz',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '364232ee56b7d2c89582a73323120db44d766a41',
+        'reference' => '8297a2626e93a216403000c61e7611ae3d2fb566',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -31,7 +31,7 @@
         'jose/puntode-pagos-jz' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '364232ee56b7d2c89582a73323120db44d766a41',
+            'reference' => '8297a2626e93a216403000c61e7611ae3d2fb566',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

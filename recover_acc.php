@@ -17,6 +17,7 @@
     $mail->SMTPAuth = true;
     $mail->Username = 'no-reply@puntodepagosjz.com';
     $mail->Password = 'Reply2024.';
+    $mail->SMTPSecure = 'tls';
     $mail->setFrom('no-reply@puntodepagosjz.com');
 
     // Lee el contenido HTML del archivo

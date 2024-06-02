@@ -29,6 +29,7 @@
     $mail->SMTPAuth = true;
     $mail->Username = 'no-reply@puntodepagosjz.com';
     $mail->Password = 'Reply2024.';
+    $mail->SMTPSecure = 'tls';
     $mail->setFrom('no-reply@puntodepagosjz.com');
 
     // Lee el contenido HTML del archivo
@@ -55,7 +56,7 @@
                 if($usuario->guardar()) {
                     $mail->addAddress($usuario->email);
                     $mail->Subject = 'Confirmacion de Cuenta';
-                    $mail->msgHTML(file_get_contents('verificar_email.html'), __DIR__);
+                    $mail->msgHTML($email_template, __DIR__);
                     $mail->send();
                     header('Location: /registro.php?result=1');
                 }

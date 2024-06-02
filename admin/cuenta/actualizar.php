@@ -16,7 +16,7 @@
         header('location: /admin');
     }
 
-    $plataformas = Plataforma::allorder();
+    $plataformas = Plataforma::allorder('plataforma', 'ASC');
     $personas = Persona::all();
     $usuarios = Usuario::all();
     $cuenta = Cuenta::find($id);

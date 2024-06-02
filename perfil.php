@@ -3,14 +3,15 @@
 
     use App\Persona;
     use App\Usuario;
+    
     estaAutenticado();
 
     // Validar por ID valido
     $id = $_SESSION['id'];
 
-    $persona = Persona::find($id);
     $usuario = Usuario::find($id);
-
+    $persona = Persona::find($usuario->personaid);
+    
     // Arreglo con mensajes de errores
     $errores = Persona::getErrores();
     $errores = Usuario::getErrores();

@@ -38,7 +38,7 @@
                 <a class="navegacion__enlace <?php echo ($_SERVER['SCRIPT_NAME'] === '/tienda.php') ? 'navegacion__enlace--activo' : ''; ?>" href="/tienda.php">Tienda</a>            
             <?php if($tipoid === '0') {?>
                 <a class="navegacion__enlace <?php echo ($_SERVER['SCRIPT_NAME'] === '/user/index.php') ? 'navegacion__enlace--activo' : ''; ?>" href="/user">Mis Cuentas</a>
-                <a class="navegacion__enlace<?php echo ($_SERVER['SCRIPT_NAME'] === '/perfil.php') ? 'navegacion__enlace--activo' : ''; ?>" href="/perfil.php">Mi perfil</a>
+                <a class="navegacion__enlace <?php echo ($_SERVER['SCRIPT_NAME'] === '/perfil.php') ? 'navegacion__enlace--activo' : ''; ?>" href="/perfil.php">Mi perfil</a>
                 <a class="navegacion__enlace" href="/logout.php">Salir</a>
             <?php } elseif ($tipoid == '1') { ?>
                 <a class="navegacion__enlace <?php echo ($_SERVER['SCRIPT_NAME'] === '/admin/index.php') ? 'navegacion__enlace--activo' : ''; ?>" href="/admin">Panel</a>
