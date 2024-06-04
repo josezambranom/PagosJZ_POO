@@ -44,12 +44,14 @@
         $mensaje = mostrarMensaje(intval($resultado));
         if($mensaje) { ?>
             <p class="alerta exito"><?php echo s($mensaje); ?></p>
-    <?php } ?>
+    <?php } 
+    include '../includes/templates/nav_panel.php';
+    ?>
     
     <a class="boton-verde" href="/admin/plataforma/crear.php">Añadir Plataforma</a>
     <a class="boton-verde" href="/admin/cuenta/crear.php">Añadir Cuenta</a>
 
-    <h2>Plataformas</h2>
+    <h2 class="plataformas" >Plataformas</h2>
 
     <table class="tabla ">
         <thead>
@@ -95,7 +97,7 @@
         </tbody>
     </table>
 
-    <h2>Cuentas</h2>
+    <h2 class="cuentas" >Cuentas</h2>
     <table class="tabla">
         <thead>
             <tr>
@@ -103,6 +105,7 @@
                 <th>Usuario</th>
                 <th>Clave</th>
                 <th>Perfil</th>
+                <th>Pin</th>
                 <th>Usuario</th>
                 <th>Fecha de Compra</th>
                 <th>Días Restantes</th>
@@ -117,9 +120,10 @@
                     $diasRestantes = calcularDiasRestantes($cuenta->fecha, $cuenta->vigencia);
                 ?>
                 <td><?php echo $cuenta->id ?></td>
-                <td class="titulo"><?php echo $cuenta->usuario ?></td>
+                <td><?php echo $cuenta->usuario ?></td>
                 <td><?php echo $cuenta->clave ?></td>
                 <td><?php echo ($cuenta->perfil === '5') ? 'Cuenta Completa' :'Perfil ' . $cuenta->perfil ?></td>
+                <td><?php echo (!$cuenta->pin) ? 'No aplica' : $cuenta->pin ?></td>
                 <td><?php foreach ($usuarios as $usuario){
                     if($cuenta->usuarioid === $usuario->id) {
                         foreach ($personas as $persona) {

@@ -5,6 +5,8 @@ document.addEventListener("DOMContentLoaded", function() {
     var istreaming = document.querySelector('#istreaming');
     var ivideojuegos = document.querySelector('#ivideojuegos');
     var irecargas = document.querySelector('#irecargas');
+    var iplataforma = document.querySelector('#iplataforma');
+    var icuenta = document.querySelector('#icuenta');
   
     // Función para detectar el desplazamiento hacia abajo en la página
     function scrollListener() {
@@ -34,10 +36,10 @@ document.addEventListener("DOMContentLoaded", function() {
   
     if(toggle) {
         // Evento para cambiar la visibilidad de una contraseña
-    toggle.addEventListener('change', function() {
-        var clave = document.querySelector('#clave');
-        clave.type = toggle.checked ? 'text' : 'password';
-      });
+        toggle.addEventListener('change', function() {
+            var clave = document.querySelector('#clave');
+            clave.type = toggle.checked ? 'text' : 'password';
+        });
     }
 
     function smoothScrollTo(element) {
@@ -67,6 +69,17 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
     
-    
+    if(iplataforma) {
+        iplataforma.addEventListener('click', function(ev) {
+            ev.preventDefault();
+            smoothScrollTo('#plataformas');
+        });
+    }
 
-  });  
+    if(icuenta) {
+        icuenta.addEventListener('click', function(ev){
+            ev.preventDefault();
+            smoothScrollTo('#cuentas');
+        });
+    }
+});
